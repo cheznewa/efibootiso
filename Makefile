@@ -77,9 +77,11 @@ EFI/BOOT/efiboot.img: EFI/BOOT/bootx64.efi
 	@touch "$(@)"
 
 
-syslinux/isolinux.bin.mod: /usr/share/syslinux/isolinux.bin
+syslinux/isolinux.bin.mod: /usr/lib/syslinux/bios/isolinux.bin
 	@mkdir -p syslinux
-	cp /usr/share/syslinux/isolinux.bin "$(@)"
+	cp /usr/lib/syslinux/bios/isolinux.bin "$(@)"
+	cp /usr/lib/syslinux/bios/*.c32 syslinux
+	cp syslinux.cfg syslinux
 	@touch "$(@)"
 
 
